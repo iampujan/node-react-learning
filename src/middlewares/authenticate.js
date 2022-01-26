@@ -18,12 +18,12 @@ export default function authenticate(req, res, next) {
     } else if (req.headers['token']) {
         token = req.headers['token'];
     }
-
+    console.log(token);
     if (!token) {
         return next(Boom.badRequest('Token is not provided.'));
     }
 
-    jwt.verify(token, process.env.somekey, (err, decoded) => {
+    jwt.verify(token, "somekey", (err, decoded) => {
         if (err) {
             return next(Boom.badRequest('Invalid Token'));
         }

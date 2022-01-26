@@ -55,7 +55,7 @@ export function login(req, res, next) {
 function createToken(data) {
     console.log(data);
     return new Promise((resolve, reject) => {
-        jwt.sign(data, process.env.somekey, (err, token) => {
+        jwt.sign(data, "somekey", (err, token) => {
             if (err) reject(err);
             else resolve(token);
         });
